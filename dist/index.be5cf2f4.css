@@ -1,12 +1,25 @@
 @import "https://fonts.googleapis.com/css2?family=Rowdies&display=swap";
 h1 {
     font-family: 'Rowdies', cursive;
-    font-size: 40px;
+    font-size: 46px;
     text-align: center;
     margin-bottom: 0;
 }
 
-img {
-    width: 1200px;
+li {
+    list-style-type: none;
+}
+
+ul {
+    column-count: 3;
+}
+
+.World-map {
+    width: 100%
+}
+
+.flag {
+    width: 30px;
+    display: inline-block;
 }
 /*# sourceMappingURL=index.be5cf2f4.css.map */

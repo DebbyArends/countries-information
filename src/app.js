@@ -1,34 +1,57 @@
-// Installeren axios -> npm install axios
-// Enpoint hebben we straks nodig : https://restcountries.com
-// asynchrone functie moeten we aanmaken met een variabele
+//Ophalen van de data:
+// 1. Het request zelf (endpoint voor naam)
+// GET 'https://restcountries.com/v2/all?fields=name,region,flags,population'
+// 2. Asynchrone functie (async/await)
+// 3. Een try and catch maken.
+// 4. Maak een variabele die als waarde het resultaat van de endpoint krijgt (await axios.get)
+// 5. Maak een container/anker in je html
+// 6. Haal deze binnen in je javascript file
+// 7. Maak een nieuw element waar je alle data in wilt opslaan
+// 8. Zet de data die je nodig hebt in dit element.
+// 9. Append dit element aan je container/anker
 
 import axios from "axios";
 
 async function fetchCountriedata() {
     try{
         const result = await axios.get('https://restcountries.com/v2/all')
-        console.log(result.data[2].name)
+            console.log(result.data)
+
+        result.data.sort((a,b) => {
+            return a.population - b.population
+        })
+
+        getAllCountries(result.data)
     }
     catch (error) {
         console.error(error)
     }
 }
 
+fetchCountriedata()
 
-function countries(country) {
-    for (let i = 0; i < country.length; i++) {
-        let countryName = ' '
-        countryName = ` ${countryName} ${country.length.data[i].name}`
-    }
+function getAllCountries(countries) {
+    const countryUnorderedList = document.getElementById('country-information')
+
+    countries.map((allCountries)=> {
+        const countrylist = document.createElement('li')
+        countrylist.innerHTML=`
+        <img src="${allCountries.flag}" class="flag"/>
+        <h3>${allCountries.name}</h3>
+        <p> Has a population of ${allCountries.population} people</p>
+        `
+        countryUnorderedList.appendChild(countrylist)
+    })
+
 }
 
-countries(fetchCountriedata());
+//Maak een nieuwe functie die een parameter verwacht
+// maak een if statement in de functie
+// Vergelijk of de parameter gelijk is aan een bepaalde region
+// Als dit zo is return dan een bepaalde kleur als string
+// h3 een class en de nieuwe functie aanroept
 
-function flags(flag) {
-    for (let i = 0; i < flag.length; i++) {
-        let flagImage = ' '
-        flagImage = ` ${flagImage} ${flag.length.data[i].flags.png}`
-    }
+function region(test){
+    if(test === 'Africa')
+        return "Blue"
 }
-
-flags(fetchCountriedata());
