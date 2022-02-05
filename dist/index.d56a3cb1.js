@@ -492,19 +492,11 @@ function getAllCountries(countries) {
         const countrylist = document.createElement('li');
         countrylist.innerHTML = `
         <img src="${allCountries.flag}" class="flag"/>
-        <h3>${allCountries.name}</h3>
+        <h3 class="${allCountries.region}"> ${allCountries.name}</h3>
         <p> Has a population of ${allCountries.population} people</p>
         `;
         countryUnorderedList.appendChild(countrylist);
     });
-}
-//Maak een nieuwe functie die een parameter verwacht
-// maak een if statement in de functie
-// Vergelijk of de parameter gelijk is aan een bepaalde region
-// Als dit zo is return dan een bepaalde kleur als string
-// h3 een class en de nieuwe functie aanroept
-function region(test) {
-    if (test === 'Africa') return "Blue";
 }
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
