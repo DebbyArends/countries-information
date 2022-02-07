@@ -1,70 +1,93 @@
 @import "https://fonts.googleapis.com/css2?family=Rowdies&display=swap";
 .Africa {
-    color: hsl(222, 39%, 65%)
+    color: hsl(222, 39%, 65%);
 }
+
 .Americas {
     color: hsl(119, 27%, 40%);
 }
+
 .Asia {
     color: hsl(358, 59%, 58%);
 }
+
 .Europe {
-    color: hsl(47, 82%, 57%)
+    color: hsl(47, 82%, 57%);
 }
+
 .Oceania {
     color: hsl(288, 43%, 53%);
 }
+
 .Antarctic {
     color: hsl(45, 6%, 62%);
 }
+
 .Ocean {
     color: hsl(45, 6%, 62%);
 }
+
 .Polar {
     color: hsl(45, 6%, 62%);
 }
+
 body {
     font-family: Roboto, cursive;
 }
+
 h1 {
     font-family: 'Rowdies', cursive;
     font-size: 46px;
     text-align: center;
     margin-bottom: 0;
 }
-h3 {
+
+li h3 {
     font-size: 16px;
-    margin: 0px
+    padding: 0 0 5px 0;
+    margin: 0px;
 }
+
 p {
     font-size: 12px;
     margin-top: 2px;
     margin-bottom: 20px;
 }
+
 #container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #country-information {
     list-style-type: none;
     column-count: 3;
     max-width: 1000px;
     background-color: hsl(0, 0%, 96%);
     border: 1px solid hsl(0, 0%, 77%);
-    border-radius: 15px;
-    align-items: center;
-    justify-content: center;
+    border-radius: 10px;
     padding: 50px;
     margin-left: 50px;
     margin-right: 50px;
+    align-items: center;
 }
+
 .World-map {
     width: 100%
 }
+
 .flag {
     width: 30px;
-    display: inline-block;
+    float: left;
+    margin: 0 10px 0 0
+}
+
+li p {
+    padding: 0;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    font-size: 12px;
 }
 
 /*# sourceMappingURL=index.be5cf2f4.css.map */
