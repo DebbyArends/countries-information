@@ -491,9 +491,9 @@ function getAllCountries(countries) {
     countries.map((allCountries)=>{
         const countrylist = document.createElement('li');
         countrylist.innerHTML = `
-        <img src="${allCountries.flag}" class="flag"/> 
-        <h3 class="${allCountries.region}"> ${allCountries.name}</h3>
-        <p> Has a population of ${allCountries.population} people</p>
+        <a href="${allCountries.flag}"><img src="${allCountries.flag}" class="flag"/></a>
+        <span class="${allCountries.region}"> ${allCountries.name} </span> 
+        <p> Has a population of <strong>${allCountries.population}</strong> people</p>
         `;
         countryUnorderedList.appendChild(countrylist);
     });
