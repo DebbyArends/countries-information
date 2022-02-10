@@ -1,0 +1,13 @@
+
+.flag-image {
+    width: 50px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+span {
+    display: flex;
+    flex-direction: row;
+}
+
+/*# sourceMappingURL=search-country.e9d690d2.css.map */
