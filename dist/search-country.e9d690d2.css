@@ -1,13 +1,57 @@
+@import "https://fonts.googleapis.com/css2?family=Rowdies&display=swap";
+#body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("—Pngtree—heart-shaped airplane route_5054161.4d18474e.png");
+    background-size: 500px;
+    background-position: top;
+    background-repeat: repeat-x;
+}
 
-.flag-image {
-    width: 50px;
-    display: inline-block;
+h1 {
+    font-family: 'Rowdies', cursive;
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-family: 'Rowdies', cursive;
+    font-size: 30px;
+}
+
+.flag-country {
+    width: 100px;
     margin-right: 10px;
 }
 
-span {
+#globe-image {
+    width: 300px
+}
+
+#button-container {
+    background-color: hsl(227, 95%, 65%);
+    margin: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+a {
+    color: white;
+}
+
+#results {
+    background-color: hsl(0, 0%, 96%);
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(227, 95%, 85%);
+    border-radius: 5px;
+    box-shadow: hsl(190, 7%, 80%) 0.3em 0.3em 0.3em;
+}
+
+#name-and-flag {
     display: flex;
     flex-direction: row;
 }
-
 /*# sourceMappingURL=search-country.e9d690d2.css.map */

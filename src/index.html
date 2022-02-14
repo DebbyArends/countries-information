@@ -5,17 +5,20 @@
     <link rel="stylesheet" href="styles.css">
     <title>Country Information - World Regions</title>
 </head>
-<body>
+<body id="body-holder">
 
 <h1>World regions</h1>
+
 <img src="../src/assets/world_map.png" alt="Wereld map" class="World-map">
-<a href="search-country.html" target="_blank"><p>Search by country</p></a>
+<div id="button-placing">
+    <button type="button" id="search-page"><a href="search-country.html" target="_blank"><p>Search by country</p></a></button>
+</div>
+
 <h1>All the countries in the World:</h1>
 
 <div id="container">
 <ul id="country-information"></ul>
 </div>
-
 
 
 <script type="module" src="app.js"></script>

@@ -1,43 +1,54 @@
 import axios from "axios";
 
-async function fetchCountriedata() {
-    try{
-        const result = await axios.get('https://restcountries.com/v2/name/netherlands')
-        console.log(result.data)
+async function getCountryData(name) {
+    const containerResult=document.getElementById('results')
+    const errorMessage = document.getElementById('error-message')
 
-        getNameCountry(result.data)
-        getOneCountry(result.data)
-    }
-    catch (error) {
-        console.error(error)
-    }
-}
+    errorMessage.innerHTML = ``
+    containerResult.innerHTML = ``
 
-fetchCountriedata()
+    try {
+        const result = await axios.get(`https://restcountries.com/v2/name/${name}`)
+        console.log(result.data[0])
+        const countries = result.data[0]
 
-function getNameCountry(countries) {
-    const countryName = document.getElementById('country-name-information')
-
-    countries.map((allNameCountries)=> {
-        const oneCountry = document.createElement('span')
-        oneCountry.innerHTML=`
-        <img src="${allNameCountries.flag}" alt="country-flag" class="flag-image">
-        <h1>${allNameCountries.name} </h1>
+        containerResult.innerHTML = `
+        <div id="name-and-flag">
+        <img src="${result.data[0].flag}" alt="vlag" class="flag-country"/>
+        <h3>${countries.name}</h3>
+        </div>
+        <hr>
+        <p>${countries.name} is situated in ${countries.subregion}. It has a population of ${countries.population} people.</p>        
+        <p>The capital is ${countries.capital} ${getCurrencies(countries.currencies)}</p>
+        <p></p>
         `
-        countryName.appendChild(oneCountry)
-    })
-}
-
-function getOneCountry(countries) {
-    const countryInformation= document.getElementById('country-name-information')
-    countries.map((allNameCountries)=> {
-        const oneCountry = document.createElement('div')
-        oneCountry.innerHTML=`
-        <p>${allNameCountries.name} is situated in ${allNameCountries.region}. It has a population of ${allNameCountries.population} people </p>
-        <p>The capital is ${allNameCountries.capital} and you can pay with ${allNameCountries.currencies[0].name}. </p>
-        <p>They speak ${allNameCountries.languages[0].name}</p>
+    }
+    catch (e) {
+        console.error(e)
+        errorMessage.innerHTML = `
+        <p>${name} doesn't exist, please try again. </p>
         `
-        countryInformation.appendChild(oneCountry)
-    })
+    }
 }
 
+
+function getCurrencies(currencies) {
+    if (currencies.length === 2) {
+        return `and you can pay with ${currencies[0].name} and ${currencies[1].name}.`
+    }
+    else {
+        return `and you can pay with ${currencies[0].name}.`
+    }
+}
+
+const searchFrom = document.getElementById('search-form')
+searchFrom.addEventListener('submit', searchingCountries)
+
+function searchingCountries(e){
+    e.preventDefault()
+
+    const inputField =document.getElementById('search-country')
+
+    getCountryData(inputField.value)
+    inputField.innerHTML = ` `;
+}

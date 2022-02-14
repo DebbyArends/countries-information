@@ -5,10 +5,22 @@
     <link rel="stylesheet" href="styles_searchPage.css">
     <title>Search country information</title>
 </head>
-<body>
+<body id="body-container">
+<h1 id="h1a">Let's search some countries!</h1>
+<img id="globe-image" src="../src/assets/—Pngtree—beautiful earth elements_3704319.png" alt="globe">
 
-<article id="country-name-information"></article>
+<form id="search-form">
+    <input type="text" id="search-country" placeholder="Search..."/>
+    <button type="submit">Search</button>
+    <div id="error-message"></div>
+</form>
+
+<div id="results"></div>
 
 <script type="module" src="searchPage.js"></script>
 </body>
+<footer>
+    <button type="button" id="button-container"><a href="index.html">Return to the homepage</a></button>
+</footer>
+
 </html>
