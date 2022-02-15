@@ -1,12 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
+.Africa {
+    color: hsl(222, 39%, 65%);
+}
+
+.Americas {
+    color: hsl(119, 27%, 40%);
+}
+
+.Asia {
+    color: hsl(358, 59%, 58%);
+}
+
+.Europe {
+    color: hsl(47, 82%, 57%);
+}
+
+.Oceania {
+    color: hsl(288, 43%, 53%);
+}
+
+.Antarctic {
+    color: hsl(45, 6%, 62%);
+}
+
+.Ocean {
+    color: hsl(45, 6%, 62%);
+}
+
+.Polar {
+    color: hsl(45, 6%, 62%);
+}
+
+body {
+    font-family: Roboto, cursive;
+}
+
 h1 {
     font-family: 'Rowdies', cursive;
-    font-size: 40px;
+    font-size: 46px;
     text-align: center;
     margin-bottom: 0;
 }
 
-img {
-    width: 1200px;
+span {
+    font-size: 16px;
+    padding: 0 0 5px 0;
+}
+
+p {
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../src/assets/—Pngtree—heart-shaped airplane route_5054161.png");
+    background-repeat: round;
+    background-size: 325px;
+}
+
+#country-information {
+    list-style-type: none;
+    column-count: 3;
+    max-width: 1200px;
+    background-color: hsl(0, 0%, 96%);
+    border: 1px solid hsl(0, 0%, 77%);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px;
+}
+
+.World-map {
+    width: 100%
+}
+
+.flag {
+    width: 35px;
+    margin: 5px 5px 0 5px;
+    display: inline-block;
+}
+
+li p {
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+li {
+    background-color: hsl(5, 35%, 93%);
+    border: 1px dotted hsl(0, 0%, 77%);
+    border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0px 10px 0px 10px;
 }
