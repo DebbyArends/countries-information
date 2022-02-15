@@ -42,7 +42,6 @@ a {
 
 #results {
     background-color: hsl(0, 0%, 96%);
-    padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid hsl(227, 95%, 85%);
@@ -53,5 +52,14 @@ a {
 #name-and-flag {
     display: flex;
     flex-direction: row;
+    padding: 20px 20px 0 20px;
+}
+
+hr {
+    margin: 10px;
+}
+
+p {
+    padding: 5px 20px 0 20px;
 }
 /*# sourceMappingURL=search-country.e9d690d2.css.map */

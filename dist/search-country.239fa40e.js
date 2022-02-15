@@ -465,8 +465,8 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 async function getCountryData(name) {
     const containerResult = document.getElementById('results');
     const errorMessage = document.getElementById('error-message');
-    errorMessage.innerHTML = ``;
-    containerResult.innerHTML = ``;
+    errorMessage.innerHTML = ' ';
+    containerResult.innerHTML = ' ';
     try {
         const result = await _axiosDefault.default.get(`https://restcountries.com/v2/name/${name}`);
         console.log(result.data[0]);
@@ -479,7 +479,6 @@ async function getCountryData(name) {
         <hr>
         <p>${countries.name} is situated in ${countries.subregion}. It has a population of ${countries.population} people.</p>        
         <p>The capital is ${countries.capital} ${getCurrencies(countries.currencies)}</p>
-        <p></p>
         `;
     } catch (e) {
         console.error(e);
@@ -498,7 +497,7 @@ function searchingCountries(e) {
     e.preventDefault();
     const inputField = document.getElementById('search-country');
     getCountryData(inputField.value);
-    inputField.innerHTML = ` `;
+    inputField.value = ' ';
 }
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {

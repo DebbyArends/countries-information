@@ -4,8 +4,8 @@ async function getCountryData(name) {
     const containerResult=document.getElementById('results')
     const errorMessage = document.getElementById('error-message')
 
-    errorMessage.innerHTML = ``
-    containerResult.innerHTML = ``
+    errorMessage.innerHTML = ' '
+    containerResult.innerHTML = ' '
 
     try {
         const result = await axios.get(`https://restcountries.com/v2/name/${name}`)
@@ -20,8 +20,7 @@ async function getCountryData(name) {
         <hr>
         <p>${countries.name} is situated in ${countries.subregion}. It has a population of ${countries.population} people.</p>        
         <p>The capital is ${countries.capital} ${getCurrencies(countries.currencies)}</p>
-        <p></p>
-        `
+        `;
     }
     catch (e) {
         console.error(e)
@@ -50,5 +49,5 @@ function searchingCountries(e){
     const inputField =document.getElementById('search-country')
 
     getCountryData(inputField.value)
-    inputField.innerHTML = ` `;
+    inputField.value = ' ';
 }
