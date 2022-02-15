@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"1Mq12":[function(require,module,exports) {
+})({"3vpkH":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "4a236f9275d0a351";
-module.bundle.HMR_BUNDLE_ID = "b5b6c481d56a3cb1";
+module.bundle.HMR_BUNDLE_ID = "308f3b16239fa40e";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -458,45 +458,46 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"5HwUs":[function(require,module,exports) {
+},{}],"f1OFs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-//Ophalen van de data:
-// 1. Het request zelf (endpoint voor naam)
-// GET 'https://restcountries.com/v2/all?fields=name,region,flags,population'
-// 2. Asynchrone functie (async/await)
-// 3. Een try and catch maken.
-// 4. Maak een variabele die als waarde het resultaat van de endpoint krijgt (await axios.get)
-// 5. Maak een container/anker in je html
-// 6. Haal deze binnen in je javascript file
-// 7. Maak een nieuw element waar je alle data in wilt opslaan
-// 8. Zet de data die je nodig hebt in dit element.
-// 9. Append dit element aan je container/anker
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-async function fetchCountriedata() {
+async function getCountryData(name) {
+    const containerResult = document.getElementById('results');
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.innerHTML = ' ';
+    containerResult.innerHTML = ' ';
     try {
-        const result = await _axiosDefault.default.get('https://restcountries.com/v2/all');
-        console.log(result.data);
-        result.data.sort((a, b)=>{
-            return a.population - b.population;
-        });
-        getAllCountries(result.data);
-    } catch (error) {
-        console.error(error);
+        const result = await _axiosDefault.default.get(`https://restcountries.com/v2/name/${name}`);
+        console.log(result.data[0]);
+        const countries = result.data[0];
+        containerResult.innerHTML = `
+        <div id="name-and-flag">
+        <img src="${result.data[0].flag}" alt="vlag" class="flag-country"/>
+        <h3>${countries.name}</h3>
+        </div>
+        <hr>
+        <p>${countries.name} is situated in ${countries.subregion}. It has a population of ${countries.population} people.</p>        
+        <p>The capital is ${countries.capital} ${getCurrencies(countries.currencies)}</p>
+        `;
+    } catch (e) {
+        console.error(e);
+        errorMessage.innerHTML = `
+        <p>${name} doesn't exist, please try again. </p>
+        `;
     }
 }
-fetchCountriedata();
-function getAllCountries(countries) {
-    const countryUnorderedList = document.getElementById('country-information');
-    countries.map((allCountries)=>{
-        const countrylist = document.createElement('li');
-        countrylist.innerHTML = `
-        <a href="${allCountries.flag}"><img src="${allCountries.flag}" class="flag"/></a>
-        <span class="${allCountries.region}"> ${allCountries.name} </span> 
-        <p> Has a population of <strong>${allCountries.population}</strong> people</p>
-        `;
-        countryUnorderedList.appendChild(countrylist);
-    });
+function getCurrencies(currencies) {
+    if (currencies.length === 2) return `and you can pay with ${currencies[0].name} and ${currencies[1].name}.`;
+    else return `and you can pay with ${currencies[0].name}.`;
+}
+const searchFrom = document.getElementById('search-form');
+searchFrom.addEventListener('submit', searchingCountries);
+function searchingCountries(e) {
+    e.preventDefault();
+    const inputField = document.getElementById('search-country');
+    getCountryData(inputField.value);
+    inputField.value = ' ';
 }
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
@@ -2090,6 +2091,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequirecb08")
+},{}]},["3vpkH","f1OFs"], "f1OFs", "parcelRequirecb08")
 
-//# sourceMappingURL=index.d56a3cb1.js.map
+//# sourceMappingURL=search-country.239fa40e.js.map
